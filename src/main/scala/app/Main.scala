@@ -24,10 +24,11 @@ def index(context: EventContext[Any, String, Params]) =
      |<div class="container">
      |<h1>Hello, Cloudflare Workers from Scala 3!</h1>
      |<p>Build info: <code>${buildinfo.BuildInfo}</code></p>
-     |<p>Inspired by <a href="https://blog.indoorvivants.com/2022-02-14-cloudflare-functions-with-scalajs">Cloudflare Functions with Scala.js</a></p>
+     |<p>Inspired by <a href="https://blog.indoorvivants.com/2022-02-14-cloudflare-functions-with-scalajs" target="_blank">Cloudflare Functions with Scala.js</a></p>
      |</div>
+     |<hr />
      |<address>
-     |<a href="https://github.com/windymelt/cloudflare-worker-scala-exercise">windymelt/cloudflare-worker-scala-exercise</a>
+     |<a href="https://github.com/windymelt/cloudflare-worker-scala-exercise" target="_blank">windymelt/cloudflare-worker-scala-exercise</a>
      |</address>
      |</body>
      |</html>""".stripMargin)
