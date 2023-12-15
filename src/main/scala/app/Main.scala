@@ -12,7 +12,20 @@ type Params = std.Record[String, scala.Any]
 
 @JSExportTopLevel(name = "onRequestGet", moduleID = "index")
 def index(context: EventContext[Any, String, Params]) =
-  global.Response(s"Hello, Cloudflare Workers from Scala 3! Build info: ${buildinfo.BuildInfo}")
+  val r = global.Response(s"""<!DOCTYPE html>
+                     |<html>
+                     |<head>
+                     |    <title>Cloudflare Workers + Scala 3</title>
+                     |    <meta charset="utf-8"/>
+                     |    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+                     |</head>
+                     |<body>
+                     |<h1>Hello, Cloudflare Workers from Scala 3!</h1>
+                     |<p>Build info: <code>${buildinfo.BuildInfo}</code></p>
+                     |</body>
+                     |</html>""".stripMargin)
+  r.headers.set("content-type", "text/html")
+  r
 
 @JSExportTopLevel(name = "onRequest", moduleID = "request_headers")
 def request_headers(context: EventContext[Any, String, Params]) =
