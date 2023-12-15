@@ -14,7 +14,6 @@ lazy val root = project
     },
 
     libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test,
-    libraryDependencies += "com.github.tarao" %%% "record4s" % "0.9.1",
     libraryDependencies +=
       "com.indoorvivants.cloudflare" %%% "worker-types" % "3.3.0",
 

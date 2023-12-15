@@ -1,7 +1,5 @@
 package app
 
-import com.github.tarao.record4s.%
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation._
 
