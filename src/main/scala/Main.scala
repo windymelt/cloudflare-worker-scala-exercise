@@ -28,6 +28,4 @@ def request_method(context: EventContext[Any, String, Params]) =
 
 @JSExportTopLevel(name = "onRequestGet", moduleID = "request_json")
 def request_json(context: EventContext[Any, String, Params]) =
-  global.Response(js.JSON.stringify(js.Dictionary("what" -> "json", "hello" -> "world"))).setHeaders(
-    js.Object("content-type" -> "application/json").asInstanceOf[global.Headers]
-  )
+  global.Response(js.JSON.stringify(js.Dictionary("what" -> "json", "hello" -> "world")))
