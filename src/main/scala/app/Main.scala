@@ -18,6 +18,8 @@ def index(context: EventContext[Any, String, Params]) =
      |<head>
      |    <title>Cloudflare Workers + Scala 3</title>
      |    <meta charset="utf-8"/>
+     |    <meta name="viewport" content="width=device-width, initial-scale=1" />
+     |    <meta name="description" content="Cloudflare Workers + Scala 3" />
      |    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
      |</head>
      |<body>
