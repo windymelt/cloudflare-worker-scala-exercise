@@ -20,8 +20,10 @@ def index(context: EventContext[Any, String, Params]) =
                      |    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
                      |</head>
                      |<body>
+                     |<div class="container">
                      |<h1>Hello, Cloudflare Workers from Scala 3!</h1>
                      |<p>Build info: <code>${buildinfo.BuildInfo}</code></p>
+                     |</div>
                      |</body>
                      |</html>""".stripMargin)
   r.headers.set("content-type", "text/html")
