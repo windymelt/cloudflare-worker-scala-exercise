@@ -11,6 +11,10 @@ import scala.scalajs.js.annotation.JSExportTopLevel
 
 type Params = std.Record[String, scala.Any]
 
+@JSExportTopLevel(name = "onRequestGet", moduleID = "index")
+def index(context: EventContext[Any, String, Params]) =
+  global.Response(s"Hello, Cloudflare Workers from Scala 3! Build info: ${buildinfo.BuildInfo}")
+
 @JSExportTopLevel(name = "onRequest", moduleID = "request_headers")
 def request_headers(context: EventContext[Any, String, Params]) =
   val str = StringBuilder()

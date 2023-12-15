@@ -2,7 +2,7 @@ val scala3Version = "3.3.1"
 
 lazy val root = project
   .in(file("."))
-  .enablePlugins(ScalaJSPlugin)
+  .enablePlugins(ScalaJSPlugin, BuildInfoPlugin)
   .settings(
     name := "cloudflare-worker-scala-exercise",
     version := "0.1.0-SNAPSHOT",
@@ -16,7 +16,10 @@ lazy val root = project
     libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test,
     libraryDependencies += "com.github.tarao" %%% "record4s" % "0.9.1",
     libraryDependencies +=
-      "com.indoorvivants.cloudflare" %%% "worker-types" % "3.3.0"
+      "com.indoorvivants.cloudflare" %%% "worker-types" % "3.3.0",
+
+    buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
+    buildInfoPackage := "buildinfo"
   )
 
 lazy val buildWorkers = taskKey[Unit]("Copy Scala.js output to the ./function folder")
