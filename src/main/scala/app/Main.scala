@@ -12,20 +12,25 @@ type Params = std.Record[String, scala.Any]
 
 @JSExportTopLevel(name = "onRequestGet", moduleID = "index")
 def index(context: EventContext[Any, String, Params]) =
-  val r = global.Response(s"""<!DOCTYPE html>
-                     |<html>
-                     |<head>
-                     |    <title>Cloudflare Workers + Scala 3</title>
-                     |    <meta charset="utf-8"/>
-                     |    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
-                     |</head>
-                     |<body>
-                     |<div class="container">
-                     |<h1>Hello, Cloudflare Workers from Scala 3!</h1>
-                     |<p>Build info: <code>${buildinfo.BuildInfo}</code></p>
-                     |</div>
-                     |</body>
-                     |</html>""".stripMargin)
+  val r = global.Response(
+    s"""<!DOCTYPE html>
+     |<html>
+     |<head>
+     |    <title>Cloudflare Workers + Scala 3</title>
+     |    <meta charset="utf-8"/>
+     |    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+     |</head>
+     |<body>
+     |<div class="container">
+     |<h1>Hello, Cloudflare Workers from Scala 3!</h1>
+     |<p>Build info: <code>${buildinfo.BuildInfo}</code></p>
+     |<p>Inspired by <a href="https://blog.indoorvivants.com/2022-02-14-cloudflare-functions-with-scalajs">Cloudflare Functions with Scala.js</a></p>
+     |</div>
+     |<address>
+     |<a href="https://github.com/windymelt/cloudflare-worker-scala-exercise">windymelt/cloudflare-worker-scala-exercise</a>
+     |</address>
+     |</body>
+     |</html>""".stripMargin)
   r.headers.set("content-type", "text/html")
   r
 
