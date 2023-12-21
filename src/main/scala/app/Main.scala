@@ -9,17 +9,25 @@ import scala.scalajs.js.annotation.JSExportTopLevel
 
 type Params = std.Record[String, scala.Any]
 
-
 @JSExportTopLevel(name = "onRequestGet", moduleID = "index")
 def index(context: EventContext[Any, String, Params]) =
-  val r = global.Response(
-    s"""<!DOCTYPE html>
+  val r = global.Response(s"""<!DOCTYPE html>
      |<html>
-     |<head>
+     |<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
      |    <title>Cloudflare Workers + Scala 3</title>
      |    <meta charset="utf-8"/>
      |    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+     |    <meta property="og:title" content="Cloudflare Workers + Scala 3" />
+     |    <meta property="og:type" content="website" />
+     |    <meta property="og:url" content="https://cloudflare-worker-scala-exercise.pages.dev/" />
+     |    <meta property="og:image" content="https://ogi.3qe.us/?title=Cloudflare%20Workers%20%2B%20Scala%203" />
      |    <meta name="description" content="Cloudflare Workers + Scala 3" />
+     |    <meta name="twitter:card" content="summary_large_image" />
+     |    <meta name="twitter:site" content="@windymelt" />
+     |    <meta name="twitter:creator" content="@windymelt" />
+     |    <meta name="twitter:title" content="Cloudflare Workers + Scala 3" />
+     |    <meta name="twitter:description" content="Cloudflare Workers + Scala 3" />
+     |    <meta name="twitter:image" content="https://ogi.3qe.us/?title=Cloudflare%20Workers%20%2B%20Scala%203" />
      |    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
      |    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
      |    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
@@ -53,6 +61,8 @@ def request_method(context: EventContext[Any, String, Params]) =
 
 @JSExportTopLevel(name = "onRequestGet", moduleID = "request_json")
 def request_json(context: EventContext[Any, String, Params]) =
-  val r = global.Response(js.JSON.stringify(js.Dictionary("what" -> "json", "hello" -> "world")))
+  val r = global.Response(
+    js.JSON.stringify(js.Dictionary("what" -> "json", "hello" -> "world"))
+  )
   r.headers.set("content-type", "application/json")
   r
